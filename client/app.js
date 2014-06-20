@@ -1,7 +1,7 @@
 angular.module('my-app', [
 
 ])
-.config(function($sceDelegateProvider, $sceProvider) {
+.config(function($sceProvider) {
   $sceProvider.enabled(false);
 })
 
@@ -40,7 +40,25 @@ angular.module('my-app', [
     restrict: 'EA',
     scope: true,
     replace: true,
-    templateUrl: 'client/views/musicPlayer.html',
+    template:
+    "<div class='container'>" +
+      "<div class='musicPlayer'>" +
+        "<audio controls autoplay></audio>" +
+      "</div>" +
+      "<div class='btn-group'>" +
+        "<button type='button' class='btn btn-default'>Back</button>" +
+        "<button type='button' class='btn btn-default'>Play</button>" +
+        "<button type='button' class='btn btn-default'>Next</button>" +
+      "</div>" +
+      "<div class='table responsive'>" +
+        "<table class='table-striped table table-hover'>" +
+          "<tr ng-repeat='song in songs' ng-click='play(song.url)'>" +
+            "<td>{{ song.title}}</td>" +
+            "<td>{{ song.artist }}</td>" +
+          "</tr>" +
+        "</table>" +
+      "</div>" +
+    "</div>",
     link: function(scope, element, attr) {
       scope.src = "https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3";
       var audioTag = element.find('audio');
