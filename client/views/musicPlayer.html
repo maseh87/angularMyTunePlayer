@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class='musicPlayer'>
+    <audio controls autoplay></audio>
+  </div>
+  <div class="btn-group">
+    <button type='button' class='btn btn-default'>Back</button>
+    <button type='button' class='btn btn-default'>Play</button>
+    <button type='button' class='btn btn-default'>Next</button>
+  </div>
+  <div class='table responsive'>
+    <table class='table-striped table table-hover'>
+      <tr ng-repeat='song in songs' ng-click='play(song.url)'>
+        <td>{{ song.title}}</td>
+        <td>{{ song.artist }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
