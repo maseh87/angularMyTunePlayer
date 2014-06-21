@@ -1,0 +1,31 @@
+<div class='container'>
+    <h1>{{ player.currentTime }} {{ player.duration }}</h1>
+      <div class='musicPlayer'>
+        <audio autoplay></audio>
+      </div>
+      <div class='table responsive'>
+        <table class='table'>
+          <tr ng-repeat='song in songs' ng-click='play(song)'>
+            <td ng-class='{playing: song.playing===true}'>{{ song.title}}</td>
+            <td ng-class='{playing: song.playing===true}'>{{ song.artist }}</td>
+          </tr>
+        </table>
+        <div class='progress'>
+          <div class='progress-bar' style='width: {{ player.time }}%'>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='btn-group col-xs-4 col-xs-offset-5'>
+            <button type='button' class='btn btn-default btn-lg'>
+              <span class='glyphicon glyphicon-backward'></span>
+            </button>
+            <button type='button' class='btn btn-default btn-lg' ng-click='playToggle()'>
+              <span class='glyphicon glyphicon-{{ toggle }}'></span>
+            </button>
+            <button type='button' class='btn btn-default btn-lg' ng-click='next()'>
+              <span class='glyphicon glyphicon-forward'></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
